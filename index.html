@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Krishnaja S — ECE Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --charcoal:#1C1C1E;
+  --charcoal2:#2A2A2C;
+  --gold:#C9A84C;
+  --gold-light:#E8C97A;
+  --gold-pale:#F5E8C0;
+  --cream:#FDFAF4;
+  --white:#FFFFFF;
+  --text-primary:#1C1C1E;
+  --text-secondary:#555558;
+  --text-muted:#888;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text-primary);line-height:1.7}
+
+nav{position:fixed;top:0;width:100%;background:rgba(28,28,30,0.97);backdrop-filter:blur(10px);z-index:100;padding:0 5%}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;color:var(--gold);font-size:20px;font-weight:700;text-decoration:none}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+
+.hero{background:var(--charcoal);min-height:100vh;display:flex;align-items:center;padding:80px 5% 60px}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center}
+.hero-eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:500}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,72px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:16px}
+.hero-name span{color:var(--gold)}
+.hero-title{font-size:16px;color:#aaa;margin-bottom:10px}
+.hero-tagline{font-size:14px;color:var(--gold-light);font-style:italic;margin-bottom:32px;opacity:0.85}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.hero-tag{font-size:11px;padding:5px 14px;border:0.5px solid var(--gold);color:var(--gold-light);border-radius:20px;letter-spacing:0.5px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-gold{background:var(--gold);color:var(--charcoal);padding:11px 26px;border-radius:4px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:background .2s}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{border:1px solid var(--gold);color:var(--gold);padding:11px 26px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:all .2s}
+.btn-outline:hover{background:var(--gold);color:var(--charcoal)}
+.hero-photo-wrap{display:flex;justify-content:center}
+.hero-photo-frame{position:relative;width:300px;height:300px}
+.hero-photo-frame::before{content:'';position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:2px solid var(--gold);border-radius:4px;opacity:0.5}
+.hero-photo-frame img{width:300px;height:300px;object-fit:cover;object-position:center top;border-radius:4px;position:relative;z-index:1}
+
+section{padding:80px 5%}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:500}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);font-weight:600;color:var(--charcoal);margin-bottom:48px;line-height:1.2}
+.section-title span{color:var(--gold)}
+
+.about-sec{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-text p{font-size:15px;color:var(--text-secondary);line-height:1.9;margin-bottom:16px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:var(--charcoal);border-radius:6px;padding:20px;text-align:center}
+.stat-val{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold);display:block}
+.stat-lbl{font-size:11px;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+.exp-sec{background:var(--cream)}
+.exp-card{background:var(--charcoal);border-radius:8px;padding:36px;position:relative;overflow:hidden}
+.exp-card::after{content:'DRDO';position:absolute;right:-10px;top:20px;font-family:'Playfair Display',serif;font-size:80px;font-weight:700;color:rgba(201,168,76,0.06);pointer-events:none}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.exp-role{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);font-weight:600}
+.exp-org{font-size:13px;color:var(--gold);margin-top:4px;font-weight:500}
+.exp-date{font-size:12px;color:#888;padding:5px 14px;border:0.5px solid #444;border-radius:20px}
+.exp-desc{font-size:14px;color:#aaa;line-height:1.8;margin-bottom:20px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:8px}
+.exp-tag{font-size:11px;background:rgba(201,168,76,0.12);color:var(--gold-light);padding:4px 12px;border-radius:20px}
+
+.proj-sec{background:var(--white)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.proj-card{border:0.5px solid #E0E0E0;border-radius:8px;padding:28px;background:var(--cream);transition:transform .2s,box-shadow .2s;position:relative}
+.proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(201,168,76,0.15)}
+.proj-card.featured{border-color:var(--gold);background:var(--charcoal)}
+.proj-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(201,168,76,0.15);line-height:1;margin-bottom:12px}
+.proj-card.featured .proj-num{color:rgba(201,168,76,0.25)}
+.proj-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.proj-card.featured .proj-title{color:var(--white)}
+.proj-subtitle{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;font-weight:500}
+.proj-desc{font-size:13px;color:var(--text-secondary);line-height:1.75;margin-bottom:16px}
+.proj-card.featured .proj-desc{color:#bbb}
+.proj-tech{display:flex;flex-wrap:wrap;gap:6px}
+.tech-tag{font-size:11px;background:#F0EBE0;color:var(--text-secondary);padding:3px 10px;border-radius:20px}
+.proj-card.featured .tech-tag{background:rgba(255,255,255,0.1);color:#ddd}
+.proj-badge{position:absolute;top:16px;right:16px;font-size:10px;background:var(--gold);color:var(--charcoal);padding:3px 10px;border-radius:20px;font-weight:600;letter-spacing:0.5px}
+
+.skills-sec{background:var(--charcoal)}
+.skills-sec .section-title{color:var(--white)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.skill-group{background:var(--charcoal2);border-radius:8px;padding:24px;border-top:2px solid var(--gold)}
+.skill-group-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600}
+.skill-item{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:13px;color:#ccc}
+.skill-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+.ach-sec{background:var(--cream)}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.ach-card{background:var(--white);border-radius:8px;padding:24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--gold)}
+.ach-icon{width:40px;height:40px;background:var(--gold-pale);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.ach-title{font-size:14px;font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.ach-sub{font-size:12px;color:var(--text-muted);line-height:1.6}
+.gold-divider{width:60px;height:2px;background:var(--gold);margin-bottom:32px}
+.cert-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.cert-item{background:var(--white);border-radius:6px;padding:18px 20px;display:flex;align-items:center;gap:14px;border:0.5px solid #E8E0D0}
+.cert-dot{width:10px;height:10px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.cert-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
+
+.pub-sec{background:var(--charcoal)}
+.pub-sec .section-title{color:var(--white)}
+.pub-card{background:var(--charcoal2);border-radius:8px;padding:36px;border:0.5px solid rgba(201,168,76,0.3);display:flex;gap:40px;align-items:center;flex-wrap:wrap}
+.pub-badge{background:var(--gold);color:var(--charcoal);font-size:11px;font-weight:700;padding:6px 16px;border-radius:4px;letter-spacing:1px;flex-shrink:0;height:fit-content}
+.pub-content{flex:1;min-width:260px}
+.pub-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--white);margin-bottom:10px;line-height:1.5}
+.pub-tags{display:flex;flex-wrap:wrap;gap:8px}
+.pub-tag{font-size:11px;background:rgba(201,168,76,0.12);color:var(--gold-light);padding:4px 12px;border-radius:20px}
+
+.contact-sec{background:var(--charcoal)}
+.contact-sec .section-title{color:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-quote{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold-light);font-style:italic;line-height:1.6;margin-bottom:24px;border-left:3px solid var(--gold);padding-left:20px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.contact-item{display:flex;align-items:center;gap:14px}
+.contact-icon{width:38px;height:38px;border:0.5px solid var(--gold);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;flex-shrink:0;font-weight:600}
+.contact-label{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px}
+.contact-val{font-size:13px;color:#ddd}
+.contact-val a{color:var(--gold-light);text-decoration:none}
+.contact-val a:hover{text-decoration:underline}
+.social-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.social-btn{display:flex;align-items:center;gap:8px;padding:10px 20px;border:0.5px solid var(--gold);border-radius:4px;color:var(--gold);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.5px;transition:all .2s}
+.social-btn:hover{background:var(--gold);color:var(--charcoal)}
+
+footer{background:var(--charcoal);border-top:0.5px solid rgba(201,168,76,0.2);padding:20px 5%;text-align:center}
+.footer-text{font-size:12px;color:#666}
+.footer-text span{color:var(--gold)}
+
+@media(max-width:768px){
+  .hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-photo-wrap{order:-1}
+  .hero-photo-frame,.hero-photo-frame img{width:200px;height:200px}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">KS</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Electronics &amp; Communication Engineer</p>
+      <h1 class="hero-name">Krishnaja <span>S</span></h1>
+      <p class="hero-title">B.E. ECE &nbsp;·&nbsp; Sri Sai Ram Engineering College, Chennai &nbsp;·&nbsp; CGPA 8.41</p>
+      <p class="hero-tagline">"Engineering innovative solutions that create real-world impact."</p>
+      <div class="hero-tags">
+        <span class="hero-tag">Embedded Systems</span>
+        <span class="hero-tag">Computer Vision</span>
+        <span class="hero-tag">IoT</span>
+        <span class="hero-tag">AI / ML</span>
+        <span class="hero-tag">DRDO Intern</span>
+        <span class="hero-tag">IEEE Published</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-gold">Get in Touch</a>
+        <a href="#projects" class="btn-outline">View Projects</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="assets/profile.png" alt="Krishnaja S"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Who I am</p>
+    <h2 class="section-title">About <span>Me</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an Electronics and Communication Engineering graduate with a passion for developing innovative solutions that combine hardware intelligence with software capability. My work spans embedded systems, IoT, computer vision, and artificial intelligence.</p>
+        <p>Through hands-on projects and industrial training at CVRDE–DRDO under the Ministry of Defence, I've gained practical exposure to designing systems that solve real-world challenges — from satellite prototypes to touchless interfaces and portable medical systems.</p>
+        <p>My goal is to contribute to organisations where I can apply engineering principles, creativity, and problem-solving to build scalable, meaningful technology — and continuously grow as an engineer in the process.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card"><span class="stat-val">8.41</span><span class="stat-lbl">CGPA</span></div>
+        <div class="stat-card"><span class="stat-val">4</span><span class="stat-lbl">Major Projects</span></div>
+        <div class="stat-card"><span class="stat-val">1100+</span><span class="stat-lbl">Problems Solved</span></div>
+        <div class="stat-card"><span class="stat-val">1</span><span class="stat-lbl">IEEE Publication</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="exp-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Industrial Training</p>
+    <h2 class="section-title">Work <span>Experience</span></h2>
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-role">Intern — Embedded Systems</div>
+          <div class="exp-org">CVRDE – DRDO &nbsp;|&nbsp; Ministry of Defence, Govt. of India &nbsp;|&nbsp; Avadi, Chennai</div>
+        </div>
+        <div class="exp-date">June 2024 – August 2024</div>
+      </div>
+      <p class="exp-desc">Contributed to the design and development of NanoExplorer, a lightweight CanSat prototype for real-time atmospheric monitoring, under the mentorship of a Scientist-C. Responsibilities spanned sensor integration, hardware assembly, wireless telemetry, and embedded firmware development for a defence-grade application.</p>
+      <div class="exp-tags">
+        <span class="exp-tag">Arduino Uno</span><span class="exp-tag">DHT11</span><span class="exp-tag">BMP180</span>
+        <span class="exp-tag">Wireless Communication</span><span class="exp-tag">Embedded C</span><span class="exp-tag">Sensor Integration</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="proj-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">What I've built</p>
+    <h2 class="section-title">Featured <span>Projects</span></h2>
+    <div class="proj-grid">
+      <div class="proj-card featured">
+        <span class="proj-badge">Featured</span>
+        <div class="proj-num">01</div>
+        <div class="proj-title">ELECTROWAVE</div>
+        <div class="proj-subtitle">Touchless Interaction Framework</div>
+        <p class="proj-desc">Real-time hand gesture recognition enabling contactless device control — virtual keyboard, air canvas, touchless navigation — achieving ~94% accuracy at 30 fps.</p>
+        <div class="proj-tech"><span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span><span class="tech-tag">MediaPipe</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">02</div>
+        <div class="proj-title">NANOEXPLORER</div>
+        <div class="proj-subtitle">Compact CanSat · DRDO</div>
+        <p class="proj-desc">Sub-750g satellite prototype collecting real-time atmospheric data with wireless telemetry over ~1000 m range, developed under DRDO guidance.</p>
+        <div class="proj-tech"><span class="tech-tag">Arduino Uno</span><span class="tech-tag">BMP180</span><span class="tech-tag">DHT11</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">03</div>
+        <div class="proj-title">DIGIBRIDGE</div>
+        <div class="proj-subtitle">Offline Smart Learning Platform</div>
+        <p class="proj-desc">Educational ecosystem for rural communities deployed in cargo containers, providing personalised offline digital classrooms with no internet dependency.</p>
+        <div class="proj-tech"><span class="tech-tag">IoT</span><span class="tech-tag">Embedded Systems</span><span class="tech-tag">HTML/CSS</span></div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-num">04</div>
+        <div class="proj-title">C3 PROJECT</div>
+        <div class="proj-subtitle">Portable ICU · Military Use</div>
+        <p class="proj-desc">Compact modular emergency ICU with renewable energy integration for rapid deployment and critical medical care in remote combat zones.</p>
+        <div class="proj-tech"><span class="tech-tag">Medical Systems</span><span class="tech-tag">Renewable Energy</span><span class="tech-tag">Hardware Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Technical expertise</p>
+    <h2 class="section-title">Skills &amp; <span>Tools</span></h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-item">Python (Intermediate)</div>
+        <div class="skill-item">C (Proficient)</div>
+        <div class="skill-item">Java (Basic)</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Embedded &amp; IoT</div>
+        <div class="skill-item">Arduino / ESP32</div>
+        <div class="skill-item">Embedded C</div>
+        <div class="skill-item">PCB Design</div>
+        <div class="skill-item">MATLAB</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">AI &amp; Vision</div>
+        <div class="skill-item">OpenCV</div>
+        <div class="skill-item">MediaPipe</div>
+        <div class="skill-item">NumPy</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Design &amp; Dev</div>
+        <div class="skill-item">Blender / Unity</div>
+        <div class="skill-item">HTML / CSS</div>
+        <div class="skill-item">Git / GitHub</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements" class="ach-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Recognition</p>
+    <h2 class="section-title">Achievements &amp; <span>Certifications</span></h2>
+    <div class="ach-grid">
+      <div class="ach-card"><div class="ach-icon">📄</div><div><div class="ach-title">IEEE Xplore Publication</div><div class="ach-sub">Traffic Sign Recognition &amp; Accident Prevention using Vision-Based Statistical Measures</div></div></div>
+      <div class="ach-card"><div class="ach-icon">🏆</div><div><div class="ach-title">Smart India Hackathon 2023</div><div class="ach-sub">Advanced to Grand Finale — SIH Senior Software Edition</div></div></div>
+      <div class="ach-card"><div class="ach-icon">🥇</div><div><div class="ach-title">NPTEL Top 2%</div><div class="ach-sub">Computer Networks &amp; Internet Protocol — National rank</div></div></div>
+      <div class="ach-card"><div class="ach-icon">🧠</div><div><div class="ach-title">NPTEL Top 5%</div><div class="ach-sub">Machine Learning &amp; Deep Learning — National rank</div></div></div>
+      <div class="ach-card"><div class="ach-icon">🥈</div><div><div class="ach-title">2nd Runner-Up — National Expo</div><div class="ach-sub">Plasma Ball project using high-voltage electrodes and inert gases</div></div></div>
+      <div class="ach-card"><div class="ach-icon">💻</div><div><div class="ach-title">1100+ Problems Solved</div><div class="ach-sub">Competitive programming on SkillRack platform</div></div></div>
+    </div>
+    <div class="gold-divider" style="margin-top:48px"></div>
+    <p class="section-eyebrow">Certified in</p>
+    <div class="cert-list" style="margin-top:16px">
+      <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Cisco — Introduction to Cybersecurity</span></div>
+      <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Cisco — Introduction to Internet of Things</span></div>
+      <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Embedded Systems &amp; IoT Masterclass (30 days)</span></div>
+      <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">IoT Robotics — Value Added Course</span></div>
+      <div class="cert-item"><div class="cert-dot"></div><span class="cert-text">Radar &amp; Millimetre-Wave Signal Processing Workshop</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Research</p>
+    <h2 class="section-title" style="color:#fff">IEEE <span>Publication</span></h2>
+    <div class="pub-card">
+      <div class="pub-badge">IEEE XPLORE</div>
+      <div class="pub-content">
+        <div class="pub-title">Integrating Vision-Based Statistical Measures for Traffic Sign Recognition and Accident Prevention</div>
+        <div class="pub-tags">
+          <span class="pub-tag">Computer Vision</span><span class="pub-tag">Artificial Intelligence</span>
+          <span class="pub-tag">Road Safety</span><span class="pub-tag">Image Processing</span><span class="pub-tag">Deep Learning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-sec">
+  <div class="section-inner">
+    <p class="section-eyebrow">Let's connect</p>
+    <h2 class="section-title" style="color:#fff">Get in <span>Touch</span></h2>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-quote">"Engineering innovative solutions that create real-world impact."</div>
+        <p style="font-size:14px;color:#aaa;line-height:1.8">Open to full-time roles, internships, and research collaborations in Embedded Systems, Software Development, AI/ML, and Core Electronics Engineering.</p>
+        <div class="social-row">
+          <a href="https://github.com/Krishnaja08" target="_blank" class="social-btn">GitHub ↗</a>
+          <a href="https://linkedin.com/in/krishnaja-subash-31a17a253" target="_blank" class="social-btn">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">@</div>
+          <div><div class="contact-label">Email</div><div class="contact-val"><a href="mailto:aamikrishnaja08@gmail.com">aamikrishnaja08@gmail.com</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">☎</div>
+          <div><div class="contact-label">Phone</div><div class="contact-val">+91 8778100579</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div><div class="contact-label">Location</div><div class="contact-val">Chennai, Tamil Nadu, India</div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">GH</div>
+          <div><div class="contact-label">GitHub</div><div class="contact-val"><a href="https://github.com/Krishnaja08" target="_blank">github.com/Krishnaja08</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">in</div>
+          <div><div class="contact-label">LinkedIn</div><div class="contact-val"><a href="https://linkedin.com/in/krishnaja-subash-31a17a253" target="_blank">krishnaja-subash-31a17a253</a></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-text">© 2026 <span>Krishnaja S</span> &nbsp;·&nbsp; Electronics &amp; Communication Engineer &nbsp;·&nbsp; Chennai, India</p>
+</footer>
+
+</body>
+</html>
